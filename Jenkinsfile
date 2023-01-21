@@ -1,12 +1,19 @@
 pipeline{
 
-  agent any
+  agent { label 'java'
+        }
   stages{
-    stage('Build'){
+    stage('checkout-scm'){
       steps{
-        echo "Building the project pipeline"
+        git branch 'master', credentialsId: 'git-hub-pwd', url: 'https://github.com/divyaraniduggappa/devOpsWeb-Ranjit4github.git'
       }
      }
+    stage(maven){
+      steps{
+         sh 'mvn clean install'  
+      
+      }
+    }
   }
     post{
       success{
