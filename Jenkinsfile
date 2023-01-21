@@ -5,7 +5,7 @@ pipeline{
   stages{
     stage('checkout-scm'){
       steps{
-        git branch 'master', credentialsId: 'git-hub-pwd', url: 'https://github.com/divyaraniduggappa/devOpsWeb-Ranjit4github.git'
+        git branch: 'master', credentialsId: 'git-hub-pwd', url: 'https://github.com/divyaraniduggappa/devOpsWeb-Ranjit4github.git'
       }
      }
     stage(maven){
